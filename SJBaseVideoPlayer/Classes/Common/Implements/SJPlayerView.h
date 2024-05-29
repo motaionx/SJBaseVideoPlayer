@@ -1,0 +1,16 @@
+
+#import <UIKit/UIKit.h>
+
+@protocol SJPlayerViewDelegate;
+
+NS_ASSUME_NONNULL_BEGIN
+@interface SJPlayerView : UIView
+@property (nonatomic, strong, readonly, nullable) UIView *presentView;
+@property (nonatomic, weak, nullable) id<SJPlayerViewDelegate> delegate;
+@end
+
+@protocol SJPlayerViewDelegate <NSObject>
+- (void)playerViewWillMoveToWindow:(SJPlayerView *)playerView;
+- (nullable UIView *)playerView:(SJPlayerView *)playerView hitTestForView:(nullable __kindof UIView *)view;
+@end
+NS_ASSUME_NONNULL_END
